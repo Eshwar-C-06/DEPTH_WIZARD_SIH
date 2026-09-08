@@ -1,0 +1,29 @@
+# Python & Virtual Environments
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# ML Weights & Checkpoints (Large Files > 100MB shouldn't be pushed to GitHub directly)
+*.pth
+*.pt
+*.onnx
+*.bin
+*.tar.gz
+Depth-Anything-V2/checkpoints/
+models/*.onnx
+models/*.pth
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+.temp/
+scratch/

@@ -1,0 +1,200 @@
+/* ============================================
+   DEPTHWIZARD — Design System
+   Neo-Brutalist GIS Application
+   ============================================ */
+
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800&f[]=satoshi@400,500,600,700&display=swap');
+
+:root {
+  /* ---- Color Palette ---- */
+  --dw-primary: #4A80F5;
+  --dw-primary-hover: #3A6CD8;
+  --dw-primary-light: #6B9AF7;
+  --dw-light-blue: #9BBFF4;
+  --dw-pale-blue: #A7CDF2;
+  --dw-sage: #BBDAA4;
+  --dw-sage-dark: #9BC484;
+  --dw-orange: #F18D00;
+  --dw-orange-hover: #D87E00;
+  --dw-white: #FFFFFF;
+  --dw-bg: #F4F8FD;
+  --dw-bg-alt: #EAF2FC;
+  --dw-bg-hover: #E8F0FA;
+  --dw-text: #0B1830;
+  --dw-text-secondary: #42526B;
+  --dw-text-muted: #7A8BA5;
+  --dw-border: #A7CDF2;
+  --dw-border-strong: #0B1830;
+  --dw-border-viz: #8EB5E8;
+  --dw-error: #E54D42;
+  --dw-error-bg: #FDF2F1;
+  --dw-success: #4CAF50;
+
+  /* ---- Typography ---- */
+  --dw-font-heading: 'Cabinet Grotesk', 'Inter', 'Segoe UI', sans-serif;
+  --dw-font-body: 'Satoshi', 'Inter', 'Segoe UI', sans-serif;
+
+  --dw-text-product: 22px;
+  --dw-text-title: 26px;
+  --dw-text-section: 16px;
+  --dw-text-body: 14px;
+  --dw-text-label: 13px;
+  --dw-text-meta: 12px;
+  --dw-text-small: 11px;
+
+  /* ---- Shadows (Hard only — Neo-Brutalist) ---- */
+  --dw-shadow-sm: 3px 3px 0px var(--dw-border-strong);
+  --dw-shadow-md: 4px 4px 0px var(--dw-border-strong);
+  --dw-shadow-lg: 6px 6px 0px var(--dw-border-strong);
+  --dw-shadow-hover: 2px 2px 0px var(--dw-border-strong);
+  --dw-shadow-active: 0px 0px 0px var(--dw-border-strong);
+
+  /* ---- Border Radius ---- */
+  --dw-radius-sm: 6px;
+  --dw-radius-md: 8px;
+  --dw-radius-lg: 10px;
+
+  /* ---- Spacing ---- */
+  --dw-space-2: 2px;
+  --dw-space-4: 4px;
+  --dw-space-6: 6px;
+  --dw-space-8: 8px;
+  --dw-space-10: 10px;
+  --dw-space-12: 12px;
+  --dw-space-16: 16px;
+  --dw-space-20: 20px;
+  --dw-space-24: 24px;
+  --dw-space-32: 32px;
+
+  /* ---- Layout Dimensions ---- */
+  --dw-header-h: 64px;
+  --dw-nav-w: 68px;
+  --dw-workflow-h: 56px;
+  --dw-panel-w: 320px;
+  --dw-footer-h: 40px;
+  --dw-toolbar-btn: 40px;
+
+  /* ---- Transitions ---- */
+  --dw-transition-fast: 120ms ease;
+  --dw-transition: 180ms ease;
+  --dw-transition-slow: 300ms ease;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: var(--dw-font-body);
+  font-size: var(--dw-text-body);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--dw-text);
+  background: var(--dw-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--dw-font-heading);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--dw-primary);
+  text-decoration: none;
+  transition: color var(--dw-transition-fast);
+}
+
+a:hover {
+  color: var(--dw-primary-hover);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--dw-font-body);
+  font-size: var(--dw-text-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, select, textarea {
+  font-family: var(--dw-font-body);
+  font-size: var(--dw-text-body);
+  color: var(--dw-text);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
+
+.text-primary { color: var(--dw-text); }
+.text-secondary { color: var(--dw-text-secondary); }
+.text-muted { color: var(--dw-text-muted); }
+
+.font-heading { font-family: var(--dw-font-heading); }
+.font-body { font-family: var(--dw-font-body); }
+
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dw-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dw-pale-blue);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dw-light-blue);
+}
+
+/* Selection */
+::selection {
+  background: var(--dw-primary);
+  color: var(--dw-white);
+}

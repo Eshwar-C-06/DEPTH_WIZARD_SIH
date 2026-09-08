@@ -1,0 +1,12 @@
+# DEPTHWIZARD Backend Dependencies
+# All should already be installed in the project venv.
+fastapi
+uvicorn[standard]
+python-multipart
+opencv-python
+torch
+torchvision
+numpy
+pillow
+# Optional: uncomment for GeoTIFF metadata extraction
+# rasterio

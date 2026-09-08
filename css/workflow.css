@@ -1,0 +1,113 @@
+/* ============================================
+   DEPTHWIZARD — Workflow Bar
+   Pipeline steps + connectors
+   ============================================ */
+
+/* ---- Workflow Steps Container ---- */
+.workflow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-8);
+  padding: var(--dw-space-6) var(--dw-space-12);
+  position: relative;
+}
+
+.workflow-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-family: var(--dw-font-heading);
+  font-size: var(--dw-text-meta);
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: all var(--dw-transition);
+}
+
+/* Step states */
+.workflow-step.pending .workflow-step-number {
+  background: var(--dw-bg-alt);
+  color: var(--dw-text-muted);
+  border: 2px solid var(--dw-border);
+}
+
+.workflow-step.active .workflow-step-number {
+  background: var(--dw-primary);
+  color: var(--dw-white);
+  border: 2px solid var(--dw-primary);
+  box-shadow: 0 0 0 3px rgba(74, 128, 245, 0.2);
+}
+
+.workflow-step.complete .workflow-step-number {
+  background: var(--dw-sage);
+  color: var(--dw-white);
+  border: 2px solid var(--dw-sage);
+}
+
+.workflow-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.workflow-step-title {
+  font-size: var(--dw-text-label);
+  font-weight: 700;
+  color: var(--dw-text);
+  line-height: 1.2;
+}
+
+.workflow-step.pending .workflow-step-title {
+  color: var(--dw-text-muted);
+}
+
+.workflow-step-desc {
+  font-size: var(--dw-text-small);
+  color: var(--dw-text-muted);
+  line-height: 1.2;
+}
+
+/* ---- Connector Arrow ---- */
+.workflow-connector {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--dw-space-4);
+  color: var(--dw-border);
+}
+
+.workflow-connector svg {
+  width: 24px;
+  height: 24px;
+}
+
+.workflow-connector.active {
+  color: var(--dw-primary);
+}
+
+.workflow-connector.complete {
+  color: var(--dw-sage);
+}
+
+/* ---- Checkmark for complete ---- */
+.workflow-step.complete .workflow-step-number::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.workflow-step.complete .workflow-step-number {
+  font-size: 0; /* hide number text */
+}

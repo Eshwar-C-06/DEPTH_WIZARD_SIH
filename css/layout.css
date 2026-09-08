@@ -1,0 +1,470 @@
+/* ============================================
+   DEPTHWIZARD — Layout System
+   CSS Grid application shell
+   ============================================ */
+
+/* ---- Application Container ---- */
+.app-container {
+  display: grid;
+  grid-template-rows: var(--dw-header-h) 1fr var(--dw-footer-h);
+  grid-template-columns: var(--dw-nav-w) 1fr;
+  grid-template-areas:
+    "header  header"
+    "nav     main"
+    "footer  footer";
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* ---- Header ---- */
+.app-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--dw-space-20);
+  background: var(--dw-white);
+  border-bottom: 2px solid var(--dw-border-strong);
+  z-index: 100;
+  height: var(--dw-header-h);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-12);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-10);
+}
+
+.header-logo svg {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.header-brand-name {
+  font-family: var(--dw-font-heading);
+  font-size: var(--dw-text-product);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--dw-text);
+  line-height: 1.1;
+}
+
+.header-brand-sep {
+  width: 1px;
+  height: 36px;
+  background: var(--dw-border);
+  margin: 0 var(--dw-space-4);
+}
+
+.header-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.header-title {
+  font-family: var(--dw-font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dw-text);
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: var(--dw-text-meta);
+  font-weight: 500;
+  color: var(--dw-text-secondary);
+  line-height: 1.2;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-10);
+}
+
+/* ---- Navigation Rail ---- */
+.nav-rail {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dw-space-4);
+  padding: var(--dw-space-12) 0;
+  background: var(--dw-white);
+  border-right: 1px solid var(--dw-border);
+  width: var(--dw-nav-w);
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--dw-radius-sm);
+  color: var(--dw-text-secondary);
+  transition: all var(--dw-transition-fast);
+  cursor: pointer;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+}
+
+.nav-item-label {
+  font-size: 9px;
+  font-weight: 600;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.nav-item:hover {
+  background: var(--dw-bg-alt);
+  color: var(--dw-primary);
+}
+
+.nav-item.active {
+  background: var(--dw-primary);
+  color: var(--dw-white);
+  border-color: var(--dw-border-strong);
+  box-shadow: var(--dw-shadow-sm);
+}
+
+.nav-spacer {
+  flex: 1;
+}
+
+/* ---- Main Content Area ---- */
+.main-content {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: var(--dw-workflow-h) 1fr auto;
+  grid-template-columns: 1fr var(--dw-panel-w);
+  grid-template-areas:
+    "workflow  workflow"
+    "viz       panel"
+    "results   results";
+  overflow: hidden;
+  background: var(--dw-bg);
+}
+
+/* ---- Workflow Bar ---- */
+.workflow-bar {
+  grid-area: workflow;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--dw-space-20);
+  background: var(--dw-white);
+  border-bottom: 1px solid var(--dw-border);
+  height: var(--dw-workflow-h);
+  gap: var(--dw-space-4);
+}
+
+/* ---- Visualization Workspace ---- */
+.visualization-workspace {
+  grid-area: viz;
+  display: flex;
+  flex-direction: column;
+  padding: var(--dw-space-10);
+  padding-right: var(--dw-space-6);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.viz-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--dw-white);
+  border: 2px solid var(--dw-border-strong);
+  border-radius: var(--dw-radius-lg);
+  box-shadow: var(--dw-shadow-lg);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.viz-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--dw-space-8) var(--dw-space-12);
+  border-bottom: 1px solid var(--dw-border);
+  background: var(--dw-bg);
+  flex-shrink: 0;
+}
+
+.viz-tabs {
+  display: flex;
+  gap: var(--dw-space-4);
+}
+
+.viz-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--dw-bg-alt);
+}
+
+/* ---- Control Panel (Level 2: Overall Sidebar Scroll) ---- */
+.control-panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dw-space-10);
+  padding: var(--dw-space-10);
+  padding-left: var(--dw-space-6);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: var(--dw-panel-w);
+  height: 100%;
+  min-height: 0;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dw-pale-blue) var(--dw-bg-alt);
+}
+
+/* ---- Panel Section (Card Container) ---- */
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  background: var(--dw-white);
+  border: 1px solid var(--dw-border);
+  border-radius: var(--dw-radius-md);
+  box-shadow: var(--dw-shadow-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* ---- Panel Section Header (Sticky at top of each card) ---- */
+.panel-section-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--dw-space-12) var(--dw-space-16);
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  background: var(--dw-white);
+  font-family: var(--dw-font-heading);
+  text-align: left;
+  transition: background var(--dw-transition-fast), border-color var(--dw-transition-fast);
+}
+
+.panel-section-header:hover {
+  background: var(--dw-bg);
+}
+
+.panel-section-header:focus-visible {
+  outline: 2px solid var(--dw-primary);
+  outline-offset: -2px;
+}
+
+.panel-section.open .panel-section-header {
+  border-bottom-color: var(--dw-border);
+}
+
+.panel-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-8);
+  font-family: var(--dw-font-heading);
+  font-size: var(--dw-text-section);
+  font-weight: 700;
+  color: var(--dw-text);
+}
+
+.panel-section-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--dw-primary);
+  flex-shrink: 0;
+}
+
+.panel-section-chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--dw-text-secondary);
+  transition: transform var(--dw-transition);
+  flex-shrink: 0;
+}
+
+.panel-section.open .panel-section-chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- Panel Section Body (Level 1: Internal Panel Scroll Area) ---- */
+.panel-section-body {
+  display: none;
+  flex-direction: column;
+  padding: var(--dw-space-14) var(--dw-space-16);
+  max-height: min(340px, 36vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dw-pale-blue) var(--dw-bg-alt);
+}
+
+.panel-section.open .panel-section-body {
+  display: flex;
+}
+
+/* ---- Processing Options Content & Sticky Action Area ---- */
+.processing-options-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.processing-actions {
+  position: sticky;
+  bottom: 0;
+  background: var(--dw-white);
+  padding-top: var(--dw-space-10);
+  margin-top: auto;
+  z-index: 5;
+}
+
+/* ---- Neo-Brutalist Custom Scrollbars (Level 1 & Level 2) ---- */
+.control-panel::-webkit-scrollbar,
+.panel-section-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.control-panel::-webkit-scrollbar-track,
+.panel-section-body::-webkit-scrollbar-track {
+  background: var(--dw-bg-alt);
+  border-left: 1.5px solid var(--dw-border-strong);
+}
+
+.control-panel::-webkit-scrollbar-thumb,
+.panel-section-body::-webkit-scrollbar-thumb {
+  background: var(--dw-pale-blue);
+  border: 1.5px solid var(--dw-border-strong);
+  border-radius: 2px;
+}
+
+.control-panel::-webkit-scrollbar-thumb:hover,
+.panel-section-body::-webkit-scrollbar-thumb:hover {
+  background: var(--dw-primary);
+}
+
+.control-panel::-webkit-scrollbar-thumb:active,
+.panel-section-body::-webkit-scrollbar-thumb:active {
+  background: var(--dw-primary-hover);
+}
+
+/* ---- Results Bar ---- */
+.results-bar {
+  grid-area: results;
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-12);
+  padding: var(--dw-space-10) var(--dw-space-16);
+  background: var(--dw-white);
+  border-top: 1px solid var(--dw-border);
+  min-height: 80px;
+}
+
+.results-title {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-8);
+  font-family: var(--dw-font-heading);
+  font-size: var(--dw-text-section);
+  font-weight: 700;
+  color: var(--dw-text);
+  white-space: nowrap;
+  padding-right: var(--dw-space-8);
+  border-right: 1px solid var(--dw-border);
+}
+
+.results-title svg {
+  width: 20px;
+  height: 20px;
+}
+
+.results-metrics {
+  display: flex;
+  gap: var(--dw-space-10);
+  flex: 1;
+}
+
+.results-exports {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dw-space-6);
+  margin-left: auto;
+}
+
+/* ---- Footer ---- */
+.app-footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--dw-space-20);
+  background: var(--dw-white);
+  border-top: 1px solid var(--dw-border);
+  height: var(--dw-footer-h);
+  font-size: var(--dw-text-meta);
+  color: var(--dw-text-secondary);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--dw-space-8);
+}
+
+.footer-brand strong {
+  font-family: var(--dw-font-heading);
+  font-weight: 800;
+  color: var(--dw-text);
+  font-size: var(--dw-text-label);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--dw-space-16);
+}
+
+.footer-links a {
+  color: var(--dw-text-secondary);
+  font-weight: 500;
+  transition: color var(--dw-transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--dw-primary);
+}
